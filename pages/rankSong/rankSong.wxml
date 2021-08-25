@@ -1,0 +1,26 @@
+<!--pages/rankSong/rankSong.wxml-->
+<scroll-view class="rankContainer" scroll-y>
+  <view class="official">
+    <text class="officialTitle">官方榜</text>
+    <view class="officialItem" wx:for="{{rankList[0]}}" wx:key="id" wx:key="index" data-musiclistid="{{rankList[0][index].id}}" bindtap="tosongList">
+
+      <image src="{{item.coverImgUrl}}"></image>
+      <view class="ranksong">
+        <view class="ranksongName" wx:for="{{item.tracks}}" wx:for-index="Index" wx:for-item="traitem" wx:key="first">
+        {{(Index+1) + '.'  + traitem.first + '-' + traitem.second}}</view>  
+      </view>
+    
+    </view>
+  </view>
+
+  <view class="global">
+    <text class="globalTitle">全球榜</text>
+    <view class="globalWhole">
+      <view class="globalItem" wx:for="{{rankList[1]}}" wx:key="id" wx:key="index" data-musiclistid="{{rankList[1][index].id}}" bindtap="tosongList">
+        <image src="{{item.coverImgUrl}}"></image>
+        <view>{{item.name}}</view>
+      </view>
+    </view>
+  </view>
+
+</scroll-view>

@@ -1,0 +1,36 @@
+<!--pages/recommendSong/recommendSong.wxml-->
+<view class="dayRecommend">
+  <!--头部区域-->
+  <view class="headerRecommend">
+    <image class="headerimg" src="/static/images/recommendSong/zxj.webp"></image>
+    <view class="date">
+      <text class="day">{{day}}</text>
+      <text> / </text>
+      <text class="month">{{month}}</text>
+    </view>
+  </view>
+  <!--列表区域-->
+  <view class="laberRecommend">
+    <view class="zongti">
+      <text class="iconfont icon-bofang"></text>
+      <text class="boardAll">播放全部</text>
+    </view>
+    <text class="iconfont icon-duoxuankuang"></text>
+  </view>
+
+  <scorll-view class="songList" scorll-y>
+    <view class="songSingle" wx:for="{{commendList}}" wx:key="id" data-song="{{item}}" bindtap="gotosongDetail">
+      <image class="songImg" src="{{item.album.blurPicUrl}}"></image>
+      <view class="xijie">
+        <text class="songName">{{item.name}}</text>
+        <text class="songAuthor">{{item.artists[0].name}}</text>
+      </view>
+   
+      <view class="tubiao">
+        <text class="iconfont icon-bofangsanjiaoxing"></text>
+        <text class="iconfont icon-gengduo"></text>
+      </view>
+    </view>
+
+  </scorll-view>
+</view>

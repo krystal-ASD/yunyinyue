@@ -1,0 +1,47 @@
+<!--pages/songDetail/songDetail.wxml-->
+<view class="songDetailContainer" wx:for="{{songDetail}}" wx:key="id">
+  <view class="songDetailName">{{item.ar[0].name}}</view>
+  <image class="needle {{isplay?'needNoplay':''}}" src="/static/images/song/needle.png"></image>
+  
+  <view class="trayContainer {{isplay?'trayAction':''}}">
+    <image class="trayimg" src="/static/images/song/disc.png"></image>
+    <image class="titleImg" src="{{item.al.picUrl}}"></image>
+  </view>
+  <!--喜欢 列表-->
+  <view class="tableDetail">
+    <text class="iconfont icon-xihuan {{isLike ? 'xihuan' : ''}}" bindtap="getisLike"></text>
+    <text class="iconfont icon-liebiao" bindtap="handleShowList"></text>
+  </view>
+  <!--进度条-->
+  <view class="progressBar">
+    <text class="strat">{{startTime}}</text>
+    <slider class="progressTitle" block-size="12" activeColor="#da3f34" value="{{currentWidth}}"  background-color="#dadada"/>
+    <text class="finish">{{finishTime}}</text>
+  </view>
+  <!--播放-->
+  <view class="boderDetail">
+    <text class="iconfont icon-shangyiqu101" id="pro" data-type="pro" bindtap="handleSwitch"></text>
+    <text class="iconfont {{isplay?'icon-iconfront-':'icon-bofang2'}}" bindtap="handlesongPlay"></text>
+    <text class="iconfont icon-xiayiqu101" id="next" data-type="next" bindtap="handleSwitch"></text>
+  </view>
+  <!--遮罩层-->
+  <view class="blackMask {{moveHeight == 0 ? 'blackMaskShow' : ''}}" bindtap="handleCancelList"></view>
+  <!--播放列表-->
+  <view class="playListContainer" style="transform:translate( 0, {{moveHeight}}% )">
+    <scroll-view class="playList" scroll-y>
+      <view class="playTitle">播放列表</view>
+      <view class="playListItem" wx:for="{{playmusicList}}" wx:key="id">
+        <text class="playListname">{{item.name}}</text>
+        <view class="gangGang"> - </view>
+        <text class="playListauthor">{{item.ar[0].name}}</text>
+      </view>
+
+      <!--<view class="playListItem">
+        <text class="playListname">原来我还嫩</text>
+        <view class="gangGang"> - </view>
+        <text class="playListauthor">原来我还嫩</text>
+      </view>-->
+      
+    </scroll-view>
+  </view>
+</view>

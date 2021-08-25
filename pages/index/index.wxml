@@ -1,0 +1,77 @@
+<!--index.wxml-->
+
+  <!--搜索框-->
+  <view class="header" bindtap="tosearch">
+    <view class="search">请点击我搜索哦</view>
+  </view>
+  <!--轮播图-->
+  <view class="bannersContainer">
+    <swiper class="banners" indicator-dots indicator-color="#e6e6e6" indicator-active-color="#ec4141" autoplay circular>
+      <swiper-item wx:for="{{bannerList}}" wx:key="bannerId">
+        <image src="{{item.pic}}" alt="" lazy-load></image>
+      </swiper-item>
+    </swiper>
+  </view>
+  <!--图标导航区-->
+  <view  class="navContainer">
+    <view class="navItem" bindtap="toRecommend">
+      <text class="iconfont icon-tuijian"></text>
+      <text class="wenzi">每日推荐</text>
+    </view>
+
+    <view class="navItem" bindtap="tomusicList">
+      <text class="iconfont icon-gedan"></text>
+      <text class="wenzi">歌单</text>
+    </view>
+
+    <view class="navItem" bindtap="toRank">
+      <text class="iconfont icon-paihangbang"></text>
+      <text class="wenzi">排行榜</text>
+    </view>
+  </view>
+  <!--推荐歌单-->
+  <view class="recommendContainer">
+    <view class="recommendTitle">
+      <text>推荐歌单</text>
+      <text class="more" bindtap="tomusicList">更多></text>
+    </view>
+
+    <!--<NavHeader nav="推荐歌单"></NavHeader>-->  
+
+    <scroll-view class="recommend" enable-flex scroll-x>
+      
+      <view class="recommendScroll" wx:for="{{recommendList}}" wx:key="id" wx:key="index" data-musiclistid="{{recommendList[index].id}}" bindtap="tosongList">
+        <image src="{{item.picUrl}}"></image>
+        <text>{{item.name}}</text>
+      </view>
+    </scroll-view>
+  
+  <!--排行榜-->
+  <view class="topList">
+
+    <view class="recommendTitle">
+      <text>排行耪</text>
+      <text class="more" bindtap="toRank">更多></text>
+    </view>
+
+    <!--<NavHeader nav="排行榜"></NavHeader>-->
+
+    <swiper class="topListContainer" bindtap="handleCurrentPage">
+
+      <swiper-item wx:for="{{topList}}" wx:key="name">
+        <view class="topListItem">
+          <view class="topListTitle">{{item.name}}</view>
+          <view class="topListmusic" wx:for="{{item.tracks}}" wx:key="id" wx:for-item="tracks" wx:for-index="idx" data-songId="{{item.tracks[idx].id}}" bindtap="tosongDetail">
+            <image src="{{tracks.al.picUrl}}"></image>
+            <text class="count">{{idx+1}}</text>
+            <text calss="itemName">{{tracks.name}}</text>
+            <view class="fenge">--</view>
+            <text class="itemAuthor">{{tracks.ar[0].name}}</text>
+          </view>  
+        </view>
+      </swiper-item>
+    
+    </swiper>
+  </view>
+    
+</view>

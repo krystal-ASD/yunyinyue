@@ -1,0 +1,77 @@
+<!--pages/search/search.wxml-->
+<view class="searchContainer">
+  <!--搜索首页-->
+
+  <!--头部搜索-->
+  <view class="inSearch">
+    <text class="iconfont icon-search"></text>
+    <input type="text" placeholder="{{searchDefault}}" value="{{searchContent}}" placeholder-class="placeholder" bindconfirm="enterSearch" bindinput="handleSearch"/>
+    <text class="cleanInput" bindtap="cleanInput" wx:if="{{isClearInput}}">×</text>
+  </view>
+
+  <!--关键字显示-->  <!--wx:if="{{searchKey.length !== 0}}"-->
+  <block wx:if="{{state == 1}}">
+    <view class="keywordItem" wx:for="{{searchKey}}" data-keywords="{{item.keyword}}" bindtap="handleKeywords">
+      <text class="iconfont icon-search"></text>
+      <text class="keyName">{{item.keyword}}</text>
+    </view>
+  </block>
+  <!--wx:else-->
+  <block wx:if="{{state == 0}}">
+    <view class="historyContainer">
+      <text class="historyTitle">历史</text>
+      <text class="deleteHistory" bindtap="deleteHistory">×</text>
+    </view>
+
+    <!--热搜榜-->
+    <view class="hotContainer">
+      <view class="hotTitle">热搜榜</view>
+      <view class="hotList">
+        <view class="hotListItem" wx:for="{{hotsongList}}" wx:key="index" 
+        data-keywords="{{item.searchWord}}" bindtap="handleResou">
+          <text class="hotCount">{{index+1}}</text>
+          <text class="hotSongName">{{item.searchWord}}</text>
+          <image class="iconImg" wx:if="{{item.iconUrl}}" src="{{item.iconUrl}}"></image>
+        </view>
+      </view>
+    </view>
+  </block>
+
+  <!--搜索结果显示-->
+  <block wx:if="{{state == 2}}">
+    <view class="searchResultShow">
+      <view class="searchTable">
+        <view class="pro tableItem {{searchType == 0 ? 'on' : ''}}" data-title="0" bindtap="tab_click">单曲</view>
+        <view class="tableItem {{searchType == 1 ? 'on' : ''}}" data-title="1" bindtap="tab_click">歌单</view>
+      </view>
+      
+      <swiper class="searchResultList" current="{{searchType}}" bindchange="tab_slide">
+        <!--单曲列表-->
+        <swiper-item class="singleSong">
+          <scrill-view class="searchResultList">
+            <view class="resultItem" wx:for="{{searchResult}}" wx:key="id" data-songId="{{item.id}}"  bindtap="tosongDetail">
+              <text class="resultName">{{item.name}}</text>
+              <text class="resultAuthor">{{item.artists[0].name}} - {{item.album.name}}</text>
+            </view>
+          </scrill-view>
+        </swiper-item>
+
+        <!--歌单列表-->
+        <swiper-item class="songsList">
+          <scrill-view class="searchResultList">
+            <view class="slItem" wx:for="{{searchResults}}" wx:key="id" data-musiclistid="{{item.id}}" bindtap="tosongList">
+              <image src="{{item.coverImgUrl}}"></image>
+              <view class="textItem">
+                <text class="sltName">{{item.name}}</text>
+                <text class="slTitle">{{item.trackCount}}首,by {{item.creator.nickname}}</text>
+              </view>
+            </view>
+
+          </scrill-view>
+        </swiper-item>
+      </swiper>
+      
+    </view>
+  </block>
+  
+</view>

@@ -1,0 +1,135 @@
+/**index.wxss**/
+/*搜索框*/
+.search {
+  font-size: 32rpx;
+  height: 60rpx;
+  margin:20rpx;
+  line-height: 60rpx;
+  border:1rpx solid #eee;
+  color: #939594;
+  background-color: #edefee;
+  border-radius: 20rpx;
+}
+/*轮播图*/
+.bannersContainer {
+  display: flex;
+  justify-content: center;
+}
+.banners {
+  width: 96%;
+  height: 300rpx;
+  border-radius: 20rpx;
+  overflow: hidden;
+}
+.banners image {
+  width: 100%;
+  height: 100%;
+}
+/*图标导航区*/
+.navContainer {
+  display: flex;
+  justify-content: space-around;
+  margin: 20rpx 0;
+}
+.navItem {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.iconfont  {
+  height: 100rpx;
+  width: 100rpx;
+  border-radius: 50%;
+  line-height: 100rpx;
+  text-align: center;
+  background: #dc2c1f;
+}
+.navItem text {
+  font-size: 60rpx;
+}
+.navItem .wenzi {
+  font-size: 32rpx;
+}
+/*推荐歌单*/
+
+.recommend {
+  display: flex;
+  margin: 20rpx 20rpx 40rpx 20rpx;
+  height: 300rpx;
+}
+/*.recommendScroll {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  }     这个限制了横向滚动的属性*/    
+.recommendScroll image {
+  height: 200rpx;
+  width: 200rpx;
+  border-radius: 20rpx;
+  margin: 10rpx;
+}
+.recommendScroll text {
+  width: 200rpx;
+  font-size: 24rpx;
+  text-overflow: -o-ellipsis-lastline;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+
+/*排行榜*/
+.topListContainer {
+  height: 600rpx;     /*原始轮播图有默认高度  不够可以修改*/
+}
+.topListItem {
+  background-color: #fbfbfb;
+  width: 96%;
+}
+.topListTitle {
+  margin: 0 10rpx;
+  font-size: 33rpx;
+}
+.topListmusic {
+  display: flex;
+  align-items: center;
+  margin: 20rpx 40rpx;
+}
+.topListmusic image {
+  height: 150rpx;
+  width: 150rpx;
+  
+  border-radius: 10rpx;
+}
+.count {
+  margin: 20rpx;
+}
+.fenge, .itemAuthor {
+  font-size: 24rpx;
+  
+  color: grey;
+}
+/*更多*/
+.recommendTitle {
+  overflow: hidden;
+  margin: 0 10rpx;
+}
+.recommendTitle text {
+  font-size: 40rpx;
+}
+.more {
+  float: right;
+  width: 150rpx;
+  height: 50rpx;
+  line-height: 50rpx;
+  border:1rpx solid #eee;
+  background-color: #edefee;
+  border-radius: 20rpx;
+  margin: 10rpx;
+  text-align: center;
+}
+

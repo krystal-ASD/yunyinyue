@@ -1,0 +1,25 @@
+<!--pages/musicList/musicList.wxml-->
+<view class="musicListContainer">
+  <!--标签栏-->
+  <view class="musicListTable">
+    <scroll-view class="ListTable" scroll-x  scroll-with-animation>
+      <view class="ListItem"  wx:for="{{listTable}}" wx:key="id">{{item.name}}</view>  
+    </scroll-view>
+    <view class="inmusictableList">
+      <text class="iconfont icon-daochu1024-29"></text>
+    </view>
+  </view>
+  
+  <!--歌单列表-->
+  <view class="body">
+    <scroll-view class="cardscroll" enable-flex scroll-y>
+      <view class="cardlist" wx:for="{{listShow}}" wx:key="id" wx:key="index" data-musiclistid="{{listShow[index].id}}"bindtap="tosongList">
+        <image src="{{item.coverImgUrl}}"></image>
+        <text>{{item.name}}</text>
+      </view>
+      
+    </scroll-view>
+  </view>
+
+
+</view>

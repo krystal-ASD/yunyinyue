@@ -1,0 +1,28 @@
+<!--pages/songList/songList.wxml-->
+<view class="songListContainer">
+  <!--头部区域-->
+  <view class="header">
+        <image class="background" src="{{songList.coverImgUrl}}"></image>
+        <image class="cover" src="{{songList.coverImgUrl}}"></image>
+        <view class="listInfo">
+            <text class="title">{{songList.name}}</text>
+            <view class="creator">
+                <image class="creatorAvatar" src="{{songList.creator.avatarUrl}}"></image>
+                <text class="creatorName">{{songList.creator.nickname}}</text>
+            </view>
+            <text class="desc">{{musicList.description==null?'':musicList.description}}</text>
+        </view>
+    </view>
+
+    <!--列表区域-->
+    <scroll-view class="listContainer">
+        <view class="listItem" wx:for="{{songList.tracks}}" wx:key="id" wx:key="index" data-songId="{{songList.tracks[index].id}}" bindtap="tosongDetail">
+            <view class="index">{{index + 1}}</view>
+            <view class="musicInfo">
+                <text class="musicName">{{item.name}}</text>
+                <text class="author">{{item.ar[0].name}} - {{item.ar[1].name}}</text>
+            </view>
+        </view>
+        
+    </scroll-view>
+</view>

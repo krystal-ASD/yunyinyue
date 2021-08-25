@@ -1,0 +1,69 @@
+/* pages/recommendSong/recommendSong.wxss */
+.headerimg {
+  height: 450rpx;
+  width: 100%;
+  
+}
+.date {
+  position: absolute;
+  top: 30rpx;
+  left: 20rpx;
+  color: grey;
+  font-size: 60rpx;
+}
+/*列表导航*/
+
+.zongti {
+  display: inline;
+}
+.icon-bofang {
+  color: red;
+  font-size: 60rpx;
+}
+
+.icon-duoxuankuang {
+  float: right;
+  font-size: 60rpx;
+  margin: 20rpx;
+}
+/*歌曲列表*/
+.songSingle {
+  margin-top: 20rpx;
+  display: flex;
+  position: relative;
+  width: 100%;
+}
+.songImg {
+  height: 100rpx;
+  width: 100rpx;
+  border-radius: 15rpx;
+  margin: 15rpx 30rpx;
+}
+.xijie {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  max-width: 400rpx;
+  white-space: nowrap;       
+  overflow: hidden;        
+  text-overflow: ellipsis;        
+}
+.songName {
+  margin-top: 20rpx;
+}
+.songAuthor {
+  font-size:32rpx;
+  color: grey;
+}
+.tubiao {
+ 
+  float: right;
+  position: absolute;
+  right: 0;
+  margin-top: 30rpx;
+}
+.icon-bofangsanjiaoxing, .icon-gengduo {
+  font-size: 50rpx;
+  margin: 20rpx; 
+}
+

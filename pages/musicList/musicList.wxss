@@ -1,0 +1,61 @@
+/* pages/musicList/musicList.wxss */
+/*标签栏*/
+.musicListTable {
+  width: 100%;
+  height: 80rpx;
+  display: flex;
+  
+}
+.ListTable {
+  display: flex;
+  white-space: nowrap;   /*规定段落中的文本不进行换行*/
+  padding: 10rpx 20rpx;
+  width: 85%;
+}
+.ListItem {
+  display: inline-block;
+  font-size: 30rpx;
+  color: grey;
+  padding: 15rpx 30rpx;
+  align-items: center;
+}
+.inmusictableList {
+  width: 10%;
+}
+.icon-daochu1024-29 {
+  color: grey;
+  height: 80rpx;
+  line-height: 80rpx;
+  font-size: 60rpx;
+  align-items: center;
+}
+
+
+/*歌单列表*/
+
+.cardscroll {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 20rpx;
+}
+.cardlist {
+  display: flex;
+  flex-direction: column;
+  align-items:center;
+  margin: 20rpx;
+}
+.cardlist image {
+  height: 200rpx;
+  width: 200rpx;
+  border-radius: 30rpx;
+}
+.cardlist text {
+  display: block;
+  width: 200rpx;
+  text-overflow: -o-ellipsis-lastline;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;     
+}
